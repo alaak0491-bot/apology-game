@@ -1,10 +1,10 @@
 let dragged = null;
 
 const images = [
-  "1.jpg","2.jpg","3.jpg","4.jpg",
-  "5.jpg","6.jpg","7.jpg","8.jpg",
-  "9.jpg","10.jpg","11.jpg","12.jpg",
-  "13.jpg","14.jpg","15.jpg","16.jpg"
+  "img1.jpg","img2.jpg","img3.jpg","img4.jpg",
+  "img5.jpg","img6.jpg","img7.jpg","img8.jpg",
+  "img9.jpg","img10.jpg","img11.jpg","img12.jpg",
+  "img13.jpg","img14.jpg","img15.jpg","img16.jpg"
 ];
 
 function startGame(){
