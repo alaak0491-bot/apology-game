@@ -1,54 +1,87 @@
-let score = 0;
+let first = null;
 
 function startGame(){
-
-  document.getElementById("start-screen").classList.add("hidden");
-  document.getElementById("game-screen").classList.remove("hidden");
-
-  createHeart();
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("game").classList.remove("hidden");
+  createPuzzle();
 }
 
-function createHeart(){
+function createPuzzle(){
+  const puzzle = document.getElementById("puzzle");
+  puzzle.innerHTML = "";
 
-  const heart = document.createElement("div");
+  let positions = [];
 
-  heart.innerHTML = "❤️";
-  heart.classList.add("heart");
+  for(let i=0;i<16;i++){
+    positions.push(i);
+  }
 
-  heart.style.left = Math.random()*80 + "%";
-  heart.style.top = Math.random()*80 + "%";
+  positions = shuffle(positions);
 
-  heart.onclick = function(){
+  positions.forEach(pos=>{
+    const div = document.createElement("div");
+    div.classList.add("tile");
 
-    score++;
+    let x = (pos % 4) * 80;
+    let y = Math.floor(pos / 4) * 80;
 
-    document.getElementById("score").innerText = score;
+    div.style.backgroundPosition = `-${x}px -${y}px`;
 
-    heart.remove();
+    div.dataset.correct = pos;
 
-    if(score < 5){
-      createHeart();
+    div.onclick = function(){
+      handleSwap(div);
+    };
+
+    puzzle.appendChild(div);
+  });
+}
+
+function handleSwap(tile){
+  if(!first){
+    first = tile;
+    tile.style.border = "2px solid red";
+  } else {
+    let temp = first.style.backgroundPosition;
+    first.style.backgroundPosition = tile.style.backgroundPosition;
+    tile.style.backgroundPosition = temp;
+
+    first.style.border = "1px solid white";
+    first = null;
+
+    checkWin();
+  }
+}
+
+function checkWin(){
+  const tiles = document.querySelectorAll(".tile");
+
+  let correct = true;
+
+  tiles.forEach((t,i)=>{
+    let x = (i % 4) * 80;
+    let y = Math.floor(i / 4) * 80;
+
+    if(t.style.backgroundPosition !== `-${x}px -${y}px`){
+      correct = false;
     }
+  });
 
-    else{
-      document.getElementById("game-screen").classList.add("hidden");
-
-      document.getElementById("message-screen").classList.remove("hidden");
-    }
-  };
-
-  document.getElementById("heart-area").appendChild(heart);
+  if(correct){
+    document.getElementById("game").classList.add("hidden");
+    document.getElementById("win").classList.remove("hidden");
+  }
 }
 
 function showTreaty(){
-
-  document.getElementById("message-screen").classList.add("hidden");
-
-  document.getElementById("treaty-screen").classList.remove("hidden");
+  document.getElementById("win").classList.add("hidden");
+  document.getElementById("treaty").classList.remove("hidden");
 }
 
-function forgive(){
-
-  document.getElementById("final-text").innerText =
-  "Forgiveness accepted successfully 🎉🤍";
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    let j = Math.floor(Math.random()*i);
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
 }
