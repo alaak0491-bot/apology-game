@@ -1,5 +1,12 @@
 let dragged = null;
 
+const images = [
+  "img1.jpg","img2.jpg","img3.jpg","img4.jpg",
+  "img5.jpg","img6.jpg","img7.jpg","img8.jpg",
+  "img9.jpg","img10.jpg","img11.jpg","img12.jpg",
+  "img13.jpg","img14.jpg","img15.jpg","img16.jpg"
+];
+
 function startGame(){
   document.getElementById("start").classList.add("hidden");
   document.getElementById("game").classList.remove("hidden");
@@ -10,25 +17,18 @@ function createPuzzle(){
   const puzzle = document.getElementById("puzzle");
   puzzle.innerHTML = "";
 
-  let pieces = [];
+  let shuffled = shuffle([...images]);
 
-  for(let i=0;i<16;i++){
-    pieces.push(i);
-  }
+  shuffled.forEach((img, index)=>{
 
-  pieces = shuffle(pieces);
-
-  pieces.forEach(pos=>{
-    const tile = document.createElement("div");
+    const tile = document.createElement("img");
+    tile.src = img;
     tile.classList.add("tile");
+
+    tile.dataset.correct = img;
+    tile.dataset.current = index;
+
     tile.draggable = true;
-
-    tile.dataset.correct = pos;
-
-    let x = (pos % 4) * 80;
-    let y = Math.floor(pos / 4) * 80;
-
-    tile.style.backgroundPosition = `-${x}px -${y}px`;
 
     tile.addEventListener("dragstart", () => {
       dragged = tile;
@@ -49,10 +49,10 @@ function createPuzzle(){
   });
 }
 
-function swapTiles(a, b){
-  let temp = a.style.backgroundPosition;
-  a.style.backgroundPosition = b.style.backgroundPosition;
-  b.style.backgroundPosition = temp;
+function swapTiles(a,b){
+  let temp = a.src;
+  a.src = b.src;
+  b.src = temp;
 
   let tempData = a.dataset.correct;
   a.dataset.correct = b.dataset.correct;
@@ -64,11 +64,8 @@ function checkWin(){
 
   let win = true;
 
-  tiles.forEach((t,i)=>{
-    let x = (i % 4) * 80;
-    let y = Math.floor(i / 4) * 80;
-
-    if(t.style.backgroundPosition !== `-${x}px -${y}px`){
+  tiles.forEach(tile=>{
+    if(tile.src.includes(tile.dataset.correct) === false){
       win = false;
     }
   });
@@ -77,11 +74,6 @@ function checkWin(){
     document.getElementById("game").classList.add("hidden");
     document.getElementById("win").classList.remove("hidden");
   }
-}
-
-function showTreaty(){
-  document.getElementById("win").classList.add("hidden");
-  document.getElementById("treaty").classList.remove("hidden");
 }
 
 function shuffle(arr){
