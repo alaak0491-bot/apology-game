@@ -1,54 +1,41 @@
 body{
+  margin:0;
   font-family: Arial;
-  text-align: center;
-  background: #ffeef5;
-  margin: 0;
+  background:#ffeef5;
+  text-align:center;
 }
 
-.hidden{
-  display:none;
+.hidden{ display:none !important; }
+
+.screen{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 
 button{
-  padding: 12px 20px;
-  border: none;
-  border-radius: 12px;
-  background: #ff4d88;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  background:#ff4d88;
+  color:white;
+  cursor:pointer;
 }
 
 #puzzle{
-  width: 320px;
-  height: 320px;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  width:320px;
+  height:320px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;
+  margin-top:20px;
 }
 
 .tile{
-  width: 80px;
-  height: 80px;
-background-image: url("./salma.jpeg");
-  background-size: 320px 320px;
-  border: 1px solid white;
-  cursor: grab;
-}
-
-.msg{
-  width: 70%;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.box{
-  background: white;
-  padding: 15px;
-  margin: 20px auto;
-  width: 60%;
-  border-radius: 15px;
+  width:80px;
+  height:80px;
+  border:1px solid white;
+  cursor:grab;
 }
