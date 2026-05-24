@@ -1,0 +1,50 @@
+body{
+  margin:0;
+  font-family:Arial;
+  background:#ffeef5;
+  text-align:center;
+}
+
+.screen{
+  padding-top:100px;
+}
+
+.hidden{
+  display:none;
+}
+
+button{
+  padding:15px 25px;
+  border:none;
+  border-radius:15px;
+  background:#ff4f87;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+#heart-area{
+  position:relative;
+  height:300px;
+}
+
+.heart{
+  position:absolute;
+  font-size:40px;
+  cursor:pointer;
+}
+
+.message{
+  width:70%;
+  margin:auto;
+  font-size:22px;
+  line-height:1.7;
+}
+
+.treaty{
+  width:60%;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+}
