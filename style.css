@@ -5,27 +5,8 @@ body{
   margin: 0;
 }
 
-/* مهم جدًا: أي عنصر مخفي يختفي تمامًا */
 .hidden{
-  display: none !important;
-}
-
-/* screens كلها */
-.screen{
-  width: 100%;
-  min-height: 100vh;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* لما الشاشة تظهر */
-#win:not(.hidden),
-#treaty:not(.hidden),
-#game:not(.hidden),
-#start:not(.hidden){
-  display: block;
+  display:none;
 }
 
 button{
@@ -51,7 +32,7 @@ button{
 .tile{
   width: 80px;
   height: 80px;
-  background-image: url("./salma.jpeg");
+  background-image: url("https://images.unsplash.com/photo-1520975928316-4564b9b3e5f6");
   background-size: 320px 320px;
   border: 1px solid white;
   cursor: grab;
