@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peace Mission</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen">
+    <h1>Scan Successful ✅</h1>
+    <p>You have entered the peace recovery system.</p>
+
+    <button onclick="startGame()">
+      Start Mission
+    </button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen hidden">
+    <h1>Catch 5 Hearts ❤️</h1>
+
+    <div id="heart-area"></div>
+
+    <p>Score: <span id="score">0</span>/5</p>
+  </div>
+
+  <!-- Apology Screen -->
+  <div id="message-screen" class="screen hidden">
+    <h1>Message Unlocked 💌</h1>
+
+    <p class="message">
+      I’m really sorry for my attitude.
+      You didn’t deserve that at all.
+      I was upset and handled it badly.
+      Please accept this peace treaty 😔🤍
+    </p>
+
+    <button onclick="showTreaty()">
+      Open Peace Treaty
+    </button>
+  </div>
+
+  <!-- Treaty Screen -->
+  <div id="treaty-screen" class="screen hidden">
+    <h1>Official Peace Treaty 🤝</h1>
+
+    <div class="treaty">
+      <p>
+        This document confirms that:
+      </p>
+
+      <ul>
+        <li>He was dramatic.</li>
+        <li>He acted stupid.</li>
+        <li>He officially regrets it.</li>
+        <li>He misses you.</li>
+      </ul>
+    </div>
+
+    <button onclick="forgive()">
+      Accept Treaty 💖
+    </button>
+
+    <h2 id="final-text"></h2>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
