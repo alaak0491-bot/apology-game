@@ -1,72 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Peace Mission</title>
-
+  <meta charset="UTF-8">
+  <title>Peace Puzzle</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Start Screen -->
-  <div id="start-screen" class="screen">
-    <h1>Scan Successful ✅</h1>
-    <p>You have entered the peace recovery system.</p>
+<div id="start">
+  <h1>Scan Successful ✅</h1>
+  <p>Restore the memory to unlock the message</p>
+  <button onclick="startGame()">Start Puzzle</button>
+</div>
 
-    <button onclick="startGame()">
-      Start Mission
-    </button>
+<div id="game" class="hidden">
+  <h2>Rebuild the Memory 🧩</h2>
+  <div id="puzzle"></div>
+</div>
+
+<div id="win" class="hidden">
+  <h1>Memory Restored 🎉</h1>
+
+  <div class="msg">
+    I’m really sorry for my attitude.<br>
+    You didn’t deserve it at all.<br>
+    Please accept this peace treaty 🤍
   </div>
 
-  <!-- Game Screen -->
-  <div id="game-screen" class="screen hidden">
-    <h1>Catch 5 Hearts ❤️</h1>
+  <button onclick="showTreaty()">Open Treaty</button>
+</div>
 
-    <div id="heart-area"></div>
+<div id="treaty" class="hidden">
+  <h1>🤝 Official Peace Treaty</h1>
 
-    <p>Score: <span id="score">0</span>/5</p>
+  <div class="box">
+    <p>✔ He was dramatic</p>
+    <p>✔ He acted without thinking</p>
+    <p>✔ He apologizes sincerely</p>
+    <p>✔ He misses you</p>
   </div>
 
-  <!-- Apology Screen -->
-  <div id="message-screen" class="screen hidden">
-    <h1>Message Unlocked 💌</h1>
-
-    <p class="message">
-      I’m really sorry for my attitude.
-      You didn’t deserve that at all.
-      I was upset and handled it badly.
-      Please accept this peace treaty 😔🤍
-    </p>
-
-    <button onclick="showTreaty()">
-      Open Peace Treaty
-    </button>
-  </div>
-
-  <!-- Treaty Screen -->
-  <div id="treaty-screen" class="screen hidden">
-    <h1>Official Peace Treaty 🤝</h1>
-
-    <div class="treaty">
-      <p>
-        This document confirms that:
-      </p>
-
-      <ul>
-        <li>He was dramatic.</li>
-        <li>He acted stupid.</li>
-        <li>He officially regrets it.</li>
-        <li>He misses you.</li>
-      </ul>
-    </div>
-
-    <button onclick="forgive()">
-      Accept Treaty 💖
-    </button>
-
-    <h2 id="final-text"></h2>
-  </div>
+  <h2>Accepted? 💖</h2>
+</div>
 
 <script src="script.js"></script>
 </body>
