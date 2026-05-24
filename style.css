@@ -32,7 +32,7 @@ button{
 .tile{
   width: 80px;
   height: 80px;
-background-image: url("image.jpg");
+background-image: url("image.jpg.jpeg");
   background-size: 320px 320px;
   border: 1px solid white;
   cursor: grab;
