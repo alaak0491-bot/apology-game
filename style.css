@@ -5,8 +5,27 @@ body{
   margin: 0;
 }
 
+/* مهم جدًا: أي عنصر مخفي يختفي تمامًا */
 .hidden{
-  display:none;
+  display: none !important;
+}
+
+/* screens كلها */
+.screen{
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* لما الشاشة تظهر */
+#win:not(.hidden),
+#treaty:not(.hidden),
+#game:not(.hidden),
+#start:not(.hidden){
+  display: block;
 }
 
 button{
@@ -51,13 +70,4 @@ button{
   margin: 20px auto;
   width: 60%;
   border-radius: 15px;
-}
-
-/* 🔥 FIX UI AFTER WIN */
-.screen{
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
