@@ -82,6 +82,8 @@ function checkWin(){
 function showTreaty(){
   document.getElementById("win").classList.add("hidden");
   document.getElementById("treaty").classList.remove("hidden");
+
+  console.log("treaty opened");
 }
 
 function shuffle(arr){
